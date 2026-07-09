@@ -1,32 +1,31 @@
-using System.Net.NetworkInformation;
+// using System.Net.NetworkInformation;
 
 
-string baseIp ="10.0.0.";
+// string baseIp ="10.0.0.";
 
-       for (int i = 1; i <=254; i++)
-        {
-            string ip = baseIp + i;
+//        for (int i = 1; i <=254; i++)
+//         {
+//             string ip = baseIp + i;
 
-            Console.WriteLine($"Pinging {ip}...");
 
-            using (Ping ping = new Ping())
-            {
-                try
-                {
-                    PingReply reply = await ping.SendPingAsync(ip, 1000);
+//             using (Ping ping = new Ping())
+//             {
+//                 try
+//                 {
+//                     PingReply reply = await ping.SendPingAsync(ip, 1000);
 
-                    if (reply.Status == IPStatus.Success)
-                    {
-                        Console.WriteLine($"Host {ip} is reachable.");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Host {ip} is not reachable. Status: {reply.Status}");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error pinging {ip}: {ex.Message}");
-                }
-            }
-        }
+//                     if (reply.Status == IPStatus.Success)
+//                     {
+//                         Console.WriteLine($"Host {ip} is reachable.");
+//                     }
+//                     else
+//                     {
+//                         Console.WriteLine($"Host {ip} is not reachable. Status: {reply.Status}");
+//                     }
+//                 }
+//                 catch (Exception ex)
+//                 {
+//                     Console.WriteLine($"Error pinging {ip}: {ex.Message}");
+//                 }
+//             }
+//         }
