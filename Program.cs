@@ -1,37 +1,24 @@
-﻿using System.Net.NetworkInformation;
+﻿using Avalonia;
+using System;
 
-class Program
+namespace dokkaebi_os;
+
+sealed class Program
 {
-    static async Task Main()
-    {   
-       string baseIp ="10.0.0.";
+    // Initialization code. Don't use any Avalonia, third-party APIs or any
+    // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
+    // yet and stuff might break.
+    [STAThread]
+    public static void Main(string[] args) => BuildAvaloniaApp()
+        .StartWithClassicDesktopLifetime(args);
 
-       for (int i = 1; i <=254; i++)
-        {
-            string ip = baseIp + i;
-
-            Console.WriteLine($"Pinging {ip}...");
-            
-            using (Ping ping = new Ping())
-            {
-                try
-                {
-                    PingReply reply = await ping.SendPingAsync(ip, 1000); // 1 second timeout
-
-                    if (reply.Status == IPStatus.Success)
-                    {
-                        Console.WriteLine($"Host {ip} is reachable.");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Host {ip} is not reachable. Status: {reply.Status}");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error pinging {ip}: {ex.Message}");
-                }
-            }
-        }
-    }
+    // Avalonia configuration, don't remove; also used by visual designer.
+    public static AppBuilder BuildAvaloniaApp()
+        => AppBuilder.Configure<App>()
+            .UsePlatformDetect()
+#if DEBUG
+            .WithDeveloperTools()
+#endif
+            .WithInterFont()
+            .LogToTrace();
 }
