@@ -7,6 +7,7 @@
 //         {
 //             string ip = baseIp + i;
 
+//             Console.WriteLine($"Pinging {ip}...");
 
 //             using (Ping ping = new Ping())
 //             {
