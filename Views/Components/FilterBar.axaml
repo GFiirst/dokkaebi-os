@@ -1,0 +1,37 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="dokkaebi_os.Views.Components.FilterBar">
+    
+    <Border Background="#252525" Padding="50 0">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                Grid.Column="0"
+                Text="Sort by status"
+                Foreground="White"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left"
+                FontSize="14"
+            />
+            <TextBlock
+                Grid.Column="1"
+                Text="Show favorites"
+                Foreground="White"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                FontSize="14"/>
+            <TextBlock
+                Grid.Column="2"
+                Text="Hide trusted"
+                Foreground="White"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                FontSize="14"/>
+        </Grid>
+    </Border>
+</UserControl>

@@ -1,0 +1,73 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="dokkaebi_os.Views.Components.Sidebar">
+    
+    <Border Background="#2d4754">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.Background>
+                    <ImageBrush
+                        Source="/Assets/sidebackground.png"
+                        Stretch="UniformToFill"
+                    />
+                </Grid.Background>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="130"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid
+                    Grid.Row="0"
+                >
+                    <Image
+                        Source="/Assets/dokka.png"
+                        Width="200"
+                        Height="200"
+                    />
+                </Grid>
+                <Grid
+                    Grid.Row="1"
+                >   
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="10"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                        Grid.Row="0"
+                        Text="DOKK OS"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Foreground="#e8e534"
+                        FontSize="20"
+                    />
+                    <TextBlock 
+                        Grid.Row="1"
+                        Text="dist 1250"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Foreground="white"
+                        FontSize="10"
+                    />
+                </Grid>                       
+            </Grid>
+            <Grid>
+                
+            </Grid>
+
+            <Grid></Grid>
+
+            <Grid></Grid>
+
+            <Grid></Grid>
+        </Grid>
+    </Border>
+</UserControl>

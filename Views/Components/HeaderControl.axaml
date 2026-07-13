@@ -1,0 +1,32 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="dokkaebi_os.Views.Components.HeaderControl">
+    
+    <Border Background="#FF0E0E0E" Padding="50 0">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                Grid.Column="0"
+                Text="I/O LOCK |||||||||| S 30ms"
+                Foreground="White"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left"
+                FontSize="14"
+            />
+
+            <TextBlock
+                Grid.Column="1"
+                Text="89%"
+                Foreground="White"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                FontSize="14"
+            />
+
+        </Grid>
+    </Border>
+</UserControl>
