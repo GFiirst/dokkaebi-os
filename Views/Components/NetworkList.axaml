@@ -13,8 +13,8 @@
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="10"/>
                 <RowDefinition Height="50"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
 
             <Grid
@@ -109,54 +109,94 @@
                 <Border
                     Grid.Column="1"
                     BorderBrush="White"
-                    BorderThickness="1"
+                    BorderThickness="1,1,0,1"
                     Background="#FF0E0E0E"
                 >
-                    <TextBlock 
-                        Grid.Column="0"
-                        Text="???"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Foreground="White"
-                        FontSize="12"/>
+                    
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock 
+                            Grid.Column="0"
+                            Text="???"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            FontSize="12"
+                        />
+                        <Border
+                            Grid.Column="1"
+                            BorderBrush="White"
+                            BorderThickness="0,0,1,0"
+                            Height="20"
+                        />
+                    </Grid>
                 </Border>
 
                 <Border
                     Grid.Column="2"
                     BorderBrush="White"
-                    BorderThickness="1"
+                    BorderThickness="0,1"
                     Background="#FF0E0E0E"
                 >
-                    <TextBlock 
-                        Text="92:B1:B8:42:D1:85"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Foreground="White"
-                        FontSize="12"
-                        Padding="10 0 0 0"
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Grid.Column="0"
+                            Text="92:B1:B8:42:D1:85"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            FontSize="12"
+                            Padding="10 0 0 0"
                         />
+                        <Border
+                            Grid.Column="1"
+                            BorderBrush="White"
+                            BorderThickness="0,0,1,0"
+                            Height="20"
+                        />
+                    </Grid>
                 </Border>
 
                 <Border
                     Grid.Column="3"
                     BorderBrush="White"
-                    BorderThickness="1"
+                    BorderThickness="0,1"
                     Background="#FF0E0E0E"
                 >
-                    <TextBlock 
-                        Grid.Column="0"
-                        Text="TCP/IP"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Foreground="White"
-                        FontSize="12"
-                    />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock 
+                            Grid.Column="0"
+                            Text="TCP/IP"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            FontSize="12"
+                        />
+                        <Border
+                            Grid.Column="1"
+                            BorderBrush="White"
+                            BorderThickness="0,0,1,0"
+                            Height="20"
+                        />
+                    </Grid>
                 </Border>
 
                 <Border
                     Grid.Column="4"
                     BorderBrush="White"
-                    BorderThickness="1"
+                    BorderThickness="0,1,1,1"
                     Background="#FF0E0E0E"
                 >
                     <TextBlock 
@@ -170,6 +210,270 @@
                     />
                 </Border>
             </Grid>
+
+
+            <!-- exemplo -->
+            <Grid
+                Grid.Row="3"
+                Margin="50 5"
+            >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="220"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border 
+                    Grid.Column="0"
+                    BorderBrush="White"
+                    BorderThickness="2"
+                    Margin="5 0"
+                >
+                    <Grid
+                        Background="#FF0E0E0E"
+                        Margin="4"
+                    >
+                    </Grid>
+                </Border>
+
+                <Border
+                    Grid.Column="1"
+                    BorderBrush="White"
+                    BorderThickness="1,1,0,1"
+                    Background="#FF0E0E0E"
+                >
+                    
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock 
+                            Grid.Column="0"
+                            Text="???"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            FontSize="12"
+                        />
+                        <Border
+                            Grid.Column="1"
+                            BorderBrush="White"
+                            BorderThickness="0,0,1,0"
+                            Height="20"
+                        />
+                    </Grid>
+                </Border>
+
+                <Border
+                    Grid.Column="2"
+                    BorderBrush="White"
+                    BorderThickness="0,1"
+                    Background="#FF0E0E0E"
+                >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Grid.Column="0"
+                            Text="00:1A:2B:3C:4D:5E"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            FontSize="12"
+                            Padding="10 0 0 0"
+                        />
+                        <Border
+                            Grid.Column="1"
+                            BorderBrush="White"
+                            BorderThickness="0,0,1,0"
+                            Height="20"
+                        />
+                    </Grid>
+                </Border>
+
+                <Border
+                    Grid.Column="3"
+                    BorderBrush="White"
+                    BorderThickness="0,1"
+                    Background="#FF0E0E0E"
+                >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock 
+                            Grid.Column="0"
+                            Text="TCP/IP"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            FontSize="12"
+                        />
+                        <Border
+                            Grid.Column="1"
+                            BorderBrush="White"
+                            BorderThickness="0,0,1,0"
+                            Height="20"
+                        />
+                    </Grid>
+                </Border>
+
+                <Border
+                    Grid.Column="4"
+                    BorderBrush="White"
+                    BorderThickness="0,1,1,1"
+                    Background="#FF0E0E0E"
+                >
+                    <TextBlock 
+                        Grid.Column="0"
+                        Text="4878 > [ACK:2] (relative se"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        FontSize="12"
+                        Padding="10 0 0 0"
+                    />
+                </Border>
+            </Grid>
+
+            <!-- exemplo -->
+             <Grid
+                Grid.Row="4"
+                Margin="50 5"
+            >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="220"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border 
+                    Grid.Column="0"
+                    BorderBrush="White"
+                    BorderThickness="2"
+                    Margin="5 0"
+                >
+                    <Grid
+                        Background="#FF0E0E0E"
+                        Margin="4"
+                    >
+                    </Grid>
+                </Border>
+
+                <Border
+                    Grid.Column="1"
+                    BorderBrush="White"
+                    BorderThickness="1,1,0,1"
+                    Background="#FF0E0E0E"
+                >
+                    
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock 
+                            Grid.Column="0"
+                            Text="???"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            FontSize="12"
+                        />
+                        <Border
+                            Grid.Column="1"
+                            BorderBrush="White"
+                            BorderThickness="0,0,1,0"
+                            Height="20"
+                        />
+                    </Grid>
+                </Border>
+
+                <Border
+                    Grid.Column="2"
+                    BorderBrush="White"
+                    BorderThickness="0,1"
+                    Background="#FF0E0E0E"
+                >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Grid.Column="0"
+                            Text="E5:B6:1F:DD:ED:B8"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            FontSize="12"
+                            Padding="10 0 0 0"
+                        />
+                        <Border
+                            Grid.Column="1"
+                            BorderBrush="White"
+                            BorderThickness="0,0,1,0"
+                            Height="20"
+                        />
+                    </Grid>
+                </Border>
+
+                <Border
+                    Grid.Column="3"
+                    BorderBrush="White"
+                    BorderThickness="0,1"
+                    Background="#FF0E0E0E"
+                >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock 
+                            Grid.Column="0"
+                            Text="TCP/IP"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            FontSize="12"
+                        />
+                        <Border
+                            Grid.Column="1"
+                            BorderBrush="White"
+                            BorderThickness="0,0,1,0"
+                            Height="20"
+                        />
+                    </Grid>
+                </Border>
+
+                <Border
+                    Grid.Column="4"
+                    BorderBrush="White"
+                    BorderThickness="0,1,1,1"
+                    Background="#FF0E0E0E"
+                >
+                    <TextBlock 
+                        Grid.Column="0"
+                        Text="4878 > [ACK:2] (relative se"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        FontSize="12"
+                        Padding="10 0 0 0"
+                    />
+                </Border>
+            </Grid>
+
         </Grid>
     </Border>
 </UserControl>
