@@ -1,6 +1,9 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="dokkaebi_os.Views.Components.NetworkList">
+             xmlns:viewmodels="using:dokkaebi_os.ViewModels"
+             x:Class="dokkaebi_os.Views.Components.NetworkList"
+             x:DataType="viewmodels:ScannerViewModel"
+             >
     
     <Border>
 
@@ -80,123 +83,127 @@
             
             
             <ScrollViewer Grid.Row="2">
-                <ItemsControl>
-                    <Grid Margin="50 0" Height="40" ColumnDefinitions="60, 60, 220, 70, *">
-                        <Border 
-                            Grid.Column="0"
-                            BorderBrush="White"
-                            BorderThickness="2"
-                            Margin="5 0"
-                        >
-                            <Grid
-                                Background="#FF0E0E0E"
-                                Margin="4"
-                            >
-                            </Grid>
-                        </Border>
-
-                        <Border
-                            Grid.Column="1"
-                            BorderBrush="White"
-                            BorderThickness="1,1,0,1"
-                            Background="#FF0E0E0E"
-                        >
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="1"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock 
+                <ItemsControl ItemsSource="{Binding Devices}">
+                     <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="50 0" Height="40" ColumnDefinitions="60, 60, 220, 70, *">
+                                <Border 
                                     Grid.Column="0"
-                                    Text="???"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Foreground="White"
-                                    FontSize="12"
-                                />
+                                    BorderBrush="White"
+                                    BorderThickness="2"
+                                    Margin="5 0"
+                                >
+                                    <Grid
+                                        Background="#FF0E0E0E"
+                                        Margin="4"
+                                    >
+                                    </Grid>
+                                </Border>
+
                                 <Border
                                     Grid.Column="1"
                                     BorderBrush="White"
-                                    BorderThickness="0,0,1,0"
-                                    Height="20"
-                                />
-                            </Grid>
-                        </Border>
+                                    BorderThickness="1,1,0,1"
+                                    Background="#FF0E0E0E"
+                                >
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="1"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock 
+                                            Grid.Column="0"
+                                            Text="{Binding Status}"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Foreground="White"
+                                            FontSize="12"
+                                        />
+                                        <Border
+                                            Grid.Column="1"
+                                            BorderBrush="White"
+                                            BorderThickness="0,0,1,0"
+                                            Height="20"
+                                        />
+                                    </Grid>
+                                </Border>
 
-                        <Border
-                            Grid.Column="2"
-                            BorderBrush="White"
-                            BorderThickness="0,1"
-                            Background="#FF0E0E0E"
-                        >
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="1"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock
-                                    Grid.Column="0"
-                                    Text="92:B1:B8:42:D1:85"
-                                    HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
-                                    Foreground="White"
-                                    FontSize="12"
-                                    Padding="10 0 0 0"
-                                />
                                 <Border
-                                    Grid.Column="1"
+                                    Grid.Column="2"
                                     BorderBrush="White"
-                                    BorderThickness="0,0,1,0"
-                                    Height="20"
-                                />
-                            </Grid>
-                        </Border>
+                                    BorderThickness="0,1"
+                                    Background="#FF0E0E0E"
+                                >
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="1"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock
+                                            Grid.Column="0"
+                                            Text="{Binding Ip}"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            Foreground="White"
+                                            FontSize="12"
+                                            Padding="10 0 0 0"
+                                        />
+                                        <Border
+                                            Grid.Column="1"
+                                            BorderBrush="White"
+                                            BorderThickness="0,0,1,0"
+                                            Height="20"
+                                        />
+                                    </Grid>
+                                </Border>
 
-                        <Border
-                            Grid.Column="3"
-                            BorderBrush="White"
-                            BorderThickness="0,1"
-                            Background="#FF0E0E0E"
-                        >
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="1"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock 
-                                    Grid.Column="0"
-                                    Text="TCP/IP"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Foreground="White"
-                                    FontSize="12"
-                                />
                                 <Border
-                                    Grid.Column="1"
+                                    Grid.Column="3"
                                     BorderBrush="White"
-                                    BorderThickness="0,0,1,0"
-                                    Height="20"
-                                />
-                            </Grid>
-                        </Border>
+                                    BorderThickness="0,1"
+                                    Background="#FF0E0E0E"
+                                >
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="1"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock 
+                                            Grid.Column="0"
+                                            Text="TCP/IP"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Foreground="White"
+                                            FontSize="12"
+                                        />
+                                        <Border
+                                            Grid.Column="1"
+                                            BorderBrush="White"
+                                            BorderThickness="0,0,1,0"
+                                            Height="20"
+                                        />
+                                    </Grid>
+                                </Border>
 
-                        <Border
-                            Grid.Column="4"
-                            BorderBrush="White"
-                            BorderThickness="0,1,1,1"
-                            Background="#FF0E0E0E"
-                        >
-                            <TextBlock 
-                                Grid.Column="0"
-                                Text="4878 > [ACK:2] (relative se"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
-                                Foreground="White"
-                                FontSize="12"
-                                Padding="10 0 0 0"
-                            />
-                        </Border>
-                    </Grid>
+                                <Border
+                                    Grid.Column="4"
+                                    BorderBrush="White"
+                                    BorderThickness="0,1,1,1"
+                                    Background="#FF0E0E0E"
+                                >
+                                    <TextBlock 
+                                        Grid.Column="0"
+                                        Text="{Binding Name}"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Foreground="White"
+                                        FontSize="12"
+                                        Padding="10 0 0 0"
+                                    />
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </ScrollViewer>
         </Grid>
