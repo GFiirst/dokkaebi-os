@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 
@@ -8,29 +9,41 @@ public class ScannerService
 {
     public async Task<List<Device>> GetDevicesAsync()
     {
-        var baseIp ="10.0.0.";
+        const string baseIp = "10.0.0.";
 
-        var devices = new List<Device>();
-
-        for(int i = 2; i <=254; i++)
-        {
-            var ip = baseIp + i;
-
-            using (Ping ping = new Ping())
+        var tasks = Enumerable
+            .Range(2, 253)
+            .Select(async i =>
             {
+                var ip = $"{baseIp}{i}";
+
+                using var ping = new Ping();
+
                 try
                 {
-                    PingReply reply = await ping.SendPingAsync(ip, 20);
+                    var reply = await ping.SendPingAsync(ip, 100);
 
-                     if (reply.Status == IPStatus.Success)
+                    if (reply.Status == IPStatus.Success)
                     {
-                        devices.Add(new Device{ Ip = ip});
+                        return new Device
+                        {
+                            Ip = ip
+                        };
                     }
                 }
-                catch{}
-            }
-        }
+                catch
+                {
 
-        return devices;
+                }
+
+                return null;
+            });
+
+        var results = await Task.WhenAll(tasks);
+
+        return results
+            .Where(device => device is not null)
+            .Cast<Device>()
+            .ToList();
     }
 }
