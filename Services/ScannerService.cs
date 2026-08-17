@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Threading.Tasks;
@@ -23,13 +24,28 @@ public class ScannerService
 
                 try
                 {
-                    var reply = await ping.SendPingAsync(ip, 100);
+                    var reply = await ping.SendPingAsync(ip, 200);
 
                     if (reply.Status == IPStatus.Success)
                     {
+                        var deviceName = await GetDeviceNameAsync(ip);
+
+                        string status;
+
+                        if(deviceName == "???")
+                        {
+                            status = "???";
+                        }
+                        else
+                        {
+                            status = "ok";
+                        }
+
                         return new Device
                         {
-                            Ip = ip
+                            Ip = ip,
+                            Name = deviceName,
+                            Status = status
                         };
                     }
                 }
@@ -75,5 +91,19 @@ public class ScannerService
         }
 
         throw new Exception("Nenhum endereço IPv4 encontrado.");
+    }
+
+    private async Task<string?> GetDeviceNameAsync(string ip)
+    {
+        try
+        {
+            var hostEntry = await Dns.GetHostEntryAsync(ip);
+
+            return hostEntry.HostName;
+        }
+        catch
+        {
+            return "???";
+        }
     }
 }
