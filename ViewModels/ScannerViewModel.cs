@@ -34,6 +34,7 @@ public partial class ScannerViewModel : ObservableObject
             foreach (var device in devices)
             {
                 Devices.Add(device);
+                await Task.Delay(100); 
             }
         }
         finally

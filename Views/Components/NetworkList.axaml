@@ -87,6 +87,20 @@
                      <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Grid Margin="50 0" Height="40" ColumnDefinitions="60, 60, 220, 70, *">
+                            <Grid.Styles>
+                                <Style Selector="Grid">
+                                    <Style.Animations>
+                                        <Animation Duration="0:0:0.3">
+                                            <KeyFrame Cue="0%">
+                                                <Setter Property="Opacity" Value="0" />
+                                            </KeyFrame>
+                                            <KeyFrame Cue="100%">
+                                                <Setter Property="Opacity" Value="1" />
+                                            </KeyFrame>
+                                        </Animation>
+                                    </Style.Animations>
+                                </Style>
+                            </Grid.Styles>
                                 <Border 
                                     Grid.Column="0"
                                     BorderBrush="White"
