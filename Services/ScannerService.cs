@@ -10,12 +10,13 @@ namespace dokkaebi_os.Services;
 
 public class ScannerService
 {
+    private readonly ArpService _arpService = new();
     public async Task<List<Device>> GetDevicesAsync()
     {
         var baseIp = GetBaseIp();
 
         var tasks = Enumerable
-            .Range(2, 253)
+            .Range(1, 254)
             .Select(async i =>
             {
                 var ip = $"{baseIp}{i}";
@@ -24,45 +25,23 @@ public class ScannerService
 
                 try
                 {
-                    var reply = await ping.SendPingAsync(ip, 200);
-
-                    if (reply.Status == IPStatus.Success)
-                    {
-                        var deviceName = await GetDeviceNameAsync(ip);
-
-                        string status;
-
-                        if(deviceName == "???")
-                        {
-                            status = "???";
-                        }
-                        else
-                        {
-                            status = "ok";
-                        }
-
-                        return new Device
-                        {
-                            Ip = ip,
-                            Name = deviceName,
-                            Status = status
-                        };
-                    }
+                    await ping.SendPingAsync(ip, 200);
                 }
                 catch
                 {
-
                 }
-
-                return null;
             });
 
-        var results = await Task.WhenAll(tasks);
+        await Task.WhenAll(tasks);
 
-        return results
-            .Where(device => device is not null)
-            .Cast<Device>()
-            .ToList();
+        var devices = await _arpService.GetDevicesAsync();
+
+        foreach (var device in devices)
+        {
+            device.Name = await GetDeviceNameAsync(device.Ip);
+        }
+
+        return devices;
     }
 
     private string GetBaseIp()
@@ -90,10 +69,10 @@ public class ScannerService
             }
         }
 
-        throw new Exception("Nenhum endereço IPv4 encontrado.");
+        throw new Exception("No IPv4 address found.");
     }
 
-    private async Task<string?> GetDeviceNameAsync(string ip)
+        private async Task<string?> GetDeviceNameAsync(string ip)
     {
         try
         {

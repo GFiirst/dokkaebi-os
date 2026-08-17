@@ -184,7 +184,7 @@
                                         </Grid.ColumnDefinitions>
                                         <TextBlock 
                                             Grid.Column="0"
-                                            Text="TCP/IP"
+                                            Text="ARP"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
                                             Foreground="White"
@@ -204,16 +204,34 @@
                                     BorderBrush="White"
                                     BorderThickness="0,1,1,1"
                                     Background="#FF0E0E0E"
+                                    Padding="10 0 0 0"
                                 >
-                                    <TextBlock 
-                                        Grid.Column="0"
-                                        Text="{Binding Name}"
-                                        HorizontalAlignment="Left"
-                                        VerticalAlignment="Center"
-                                        Foreground="White"
-                                        FontSize="12"
-                                        Padding="10 0 0 0"
-                                    />
+                                    <Grid ColumnDefinitions="auto, auto, auto">
+                                        <TextBlock 
+                                            Grid.Column="0"
+                                            Text="{Binding Name}"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            Foreground="White"
+                                            FontSize="12"
+                                        />
+                                        <TextBlock
+                                            Grid.Column="1"
+                                            Text="> [MAC]"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            Foreground="White"
+                                            FontSize="12"
+                                        />
+                                        <TextBlock 
+                                            Grid.Column="2"
+                                            Text="{Binding Mac}"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            Foreground="White"
+                                            FontSize="12"
+                                        />
+                                    </Grid>
                                 </Border>
                             </Grid>
                         </DataTemplate>
