@@ -90,7 +90,7 @@ public class ArpService
                 {
                     Ip = ip,
                     Mac = mac,
-                    Status = "ok"
+                    Status = "아군"
                 });
             }
 
@@ -137,13 +137,13 @@ public class ArpService
             {
                 Ip = ip,
                 Mac = mac,
-                Status = "ok"
+                Status = "아군"
             });
         }
 
         return devices;
     }
-    
+
     private bool IsIPv4(string value)
     {
         return System.Net.IPAddress.TryParse(value, out var address)

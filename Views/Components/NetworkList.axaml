@@ -130,7 +130,7 @@
                                             Text="{Binding Status}"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
-                                            Foreground="White"
+                                            Foreground="#e8e534"
                                             FontSize="12"
                                         />
                                         <Border

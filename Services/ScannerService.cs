@@ -40,6 +40,10 @@ public class ScannerService
         foreach (var device in devices)
         {
             device.Manufacturer = _macVendorService.GetManufacturer(device.Mac);
+            if (device.Manufacturer == "???")
+            {
+                device.Status = "???";
+            }
         }
 
         return devices;
