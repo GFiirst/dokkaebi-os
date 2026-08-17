@@ -128,6 +128,11 @@ public class ArpService
 
             var mac = parts[macIndex + 1];
 
+            if (!IsIPv4(ip))
+            {
+                continue;
+            }
+
             devices.Add(new Device
             {
                 Ip = ip,
