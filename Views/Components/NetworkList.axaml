@@ -64,7 +64,7 @@
                 />
                 <TextBlock 
                     Grid.Column="5"
-                    Text="1/253"
+                    Text="{Binding Devices.Count, StringFormat={}{0}/254}"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
                     Foreground="White"
