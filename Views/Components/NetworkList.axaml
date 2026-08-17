@@ -209,7 +209,7 @@
                                     <Grid ColumnDefinitions="auto, auto, auto">
                                         <TextBlock 
                                             Grid.Column="0"
-                                            Text="{Binding Name}"
+                                            Text="{Binding Manufacturer}"
                                             HorizontalAlignment="Left"
                                             VerticalAlignment="Center"
                                             Foreground="White"

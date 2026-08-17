@@ -11,12 +11,13 @@ namespace dokkaebi_os.Services;
 public class ScannerService
 {
     private readonly ArpService _arpService = new();
+    private readonly MacVendorService _macVendorService = new();
     public async Task<List<Device>> GetDevicesAsync()
     {
         var baseIp = GetBaseIp();
 
         var tasks = Enumerable
-            .Range(1, 254)
+            .Range(2, 254)
             .Select(async i =>
             {
                 var ip = $"{baseIp}{i}";
@@ -38,7 +39,7 @@ public class ScannerService
 
         foreach (var device in devices)
         {
-            device.Name = await GetDeviceNameAsync(device.Ip);
+            device.Manufacturer = _macVendorService.GetManufacturer(device.Mac);
         }
 
         return devices;
@@ -70,19 +71,5 @@ public class ScannerService
         }
 
         throw new Exception("No IPv4 address found.");
-    }
-
-        private async Task<string?> GetDeviceNameAsync(string ip)
-    {
-        try
-        {
-            var hostEntry = await Dns.GetHostEntryAsync(ip);
-
-            return hostEntry.HostName;
-        }
-        catch
-        {
-            return "???";
-        }
     }
 }
