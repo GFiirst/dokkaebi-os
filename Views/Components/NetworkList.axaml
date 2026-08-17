@@ -86,7 +86,7 @@
                 <ItemsControl ItemsSource="{Binding Devices}">
                      <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Grid Margin="50 0" Height="40" ColumnDefinitions="60, 60, 220, 70, *">
+                            <Grid Margin="50 5" Height="40" ColumnDefinitions="60, 60, 220, 70, *">
                             <Grid.Styles>
                                 <Style Selector="Grid">
                                     <Style.Animations>
@@ -106,6 +106,7 @@
                                     BorderBrush="White"
                                     BorderThickness="2"
                                     Margin="5 0"
+                                    CornerRadius="3"
                                 >
                                     <Grid
                                         Background="#FF0E0E0E"
@@ -119,6 +120,7 @@
                                     BorderBrush="White"
                                     BorderThickness="1,1,0,1"
                                     Background="#FF0E0E0E"
+                                    CornerRadius="3 0 0 3"
                                 >
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -205,6 +207,7 @@
                                     BorderThickness="0,1,1,1"
                                     Background="#FF0E0E0E"
                                     Padding="10 0 0 0"
+                                    CornerRadius="0 3 3 0"
                                 >
                                     <Grid ColumnDefinitions="auto, auto, auto">
                                         <TextBlock 

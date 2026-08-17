@@ -10,28 +10,48 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock
+            <Border
                 Grid.Column="0"
-                Text="Sort by status"
-                Foreground="White"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Left"
-                FontSize="14"
-            />
-            <TextBlock
+                Background="Black"
+                Padding="5 2"
+                CornerRadius="5"
+            >
+                <TextBlock
+                    Text="Sort by status"
+                    Foreground="White"
+                    FontSize="14"
+                />
+            </Border>
+            <Border
                 Grid.Column="1"
-                Text="Show favorites"
-                Foreground="White"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
-                FontSize="14"/>
-            <TextBlock
+                Background="Black"
+                Padding="5 2"
+                CornerRadius="5"
+            >
+                <TextBlock
+                    Text="Show favorites"
+                    Foreground="White"
+                    FontSize="14"
+                />
+            </Border>
+            <Border
                 Grid.Column="2"
-                Text="Hide trusted"
-                Foreground="White"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Right"
-                FontSize="14"/>
+                Background="Black"
+                Padding="5 2"
+                CornerRadius="5"
+            >
+                <TextBlock
+                    Text="Hide trusted"
+                    Foreground="White"
+                    FontSize="14"
+                />
+            </Border>
         </Grid>
     </Border>
 </UserControl>
