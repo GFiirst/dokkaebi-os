@@ -3,54 +3,79 @@
              x:Class="dokkaebi_os.Views.Components.FilterBar">
     
     <Border Background="#252525" Padding="50 0">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
+        <Grid ColumnDefinitions="*, auto, *">
             <Border
                 Grid.Column="0"
                 VerticalAlignment="Center"
-                HorizontalAlignment="Left"
                 Background="Black"
-                Padding="5 2"
+                Padding="7 6"
                 CornerRadius="5"
             >
-                <TextBlock
-                    Text="Sort by status"
-                    Foreground="White"
-                    FontSize="14"
-                />
+                <Grid ColumnDefinitions="* auto">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        Text="Sort by status • 상태별 정렬"
+                        Foreground="White"
+                        FontSize="16"
+                    />
+                    <Image
+                        Grid.Column="1"
+                        Source="/Assets/check.png"
+                        Width="16"
+                        Height="16"
+                        HorizontalAlignment="Right"
+                    />
+                </Grid>
             </Border>
             <Border
                 Grid.Column="1"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
                 Background="Black"
-                Padding="5 2"
+                Padding="7 6"
                 CornerRadius="5"
+                Margin="8, 0"
+                Width="270"
             >
-                <TextBlock
-                    Text="Show favorites"
-                    Foreground="White"
-                    FontSize="14"
-                />
+                <Grid ColumnDefinitions="* auto">
+                    <TextBlock
+                        Grid.Column="0"
+                        HorizontalAlignment="Center"
+                        Text="Show favorites • 즐겨찾기 표시"
+                        Foreground="White"
+                        FontSize="16"
+                    />
+                    <Image
+                        Grid.Column="1"
+                        Source="/Assets/check.png"
+                        Width="16"
+                        Height="16"
+                        HorizontalAlignment="Right"
+                    />
+                </Grid>
             </Border>
             <Border
                 Grid.Column="2"
                 VerticalAlignment="Center"
-                HorizontalAlignment="Right"
                 Background="Black"
-                Padding="5 2"
+                Padding="7 6"
                 CornerRadius="5"
             >
-                <TextBlock
-                    Text="Hide trusted"
-                    Foreground="White"
-                    FontSize="14"
-                />
+                <Grid ColumnDefinitions="*, auto">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        Text="Hide trusted • 신뢰 대상 감추기"
+                        Foreground="White"
+                        FontSize="16"
+                    />
+                    <Image
+                        Grid.Column="1"
+                        Source="/Assets/check.png"
+                        Width="16"
+                        Height="16"
+                        HorizontalAlignment="Right"
+                    />
+                </Grid>
             </Border>
         </Grid>
     </Border>
