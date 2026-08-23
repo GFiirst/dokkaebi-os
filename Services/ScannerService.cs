@@ -17,7 +17,7 @@ public class ScannerService
         var baseIp = GetBaseIp();
 
         var tasks = Enumerable
-            .Range(2, 254)
+            .Range(1, 254)
             .Select(async i =>
             {
                 var ip = $"{baseIp}{i}";
@@ -35,7 +35,7 @@ public class ScannerService
 
         await Task.WhenAll(tasks);
 
-        var devices = await _arpService.GetDevicesAsync();
+        var devices = await _arpService.GetDevicesAsync(baseIp);
 
         foreach (var device in devices)
         {
@@ -51,6 +51,25 @@ public class ScannerService
 
     private string GetBaseIp()
     {
+        try
+        {
+            using var socket = new Socket(
+                AddressFamily.InterNetwork,
+                SocketType.Dgram,
+                ProtocolType.Udp);
+
+            socket.Connect(new IPEndPoint(IPAddress.Parse("8.8.8.8"), 65530));
+
+            if (socket.LocalEndPoint is IPEndPoint localEndPoint)
+            {
+                return Get24BaseIp(localEndPoint.Address);
+            }
+        }
+        catch (SocketException)
+        {
+
+        }
+
         foreach (var network in NetworkInterface.GetAllNetworkInterfaces())
         {
             if (network.OperationalStatus != OperationalStatus.Up)
@@ -62,18 +81,29 @@ public class ScannerService
                 continue;
             }
 
-            foreach (var address in network.GetIPProperties().UnicastAddresses)
+            var properties = network.GetIPProperties();
+            var hasIPv4Gateway = properties.GatewayAddresses.Any(gateway =>
+                gateway.Address.AddressFamily == AddressFamily.InterNetwork &&
+                !gateway.Address.Equals(IPAddress.Any));
+
+            if (!hasIPv4Gateway)
+                continue;
+
+            foreach (var address in properties.UnicastAddresses)
             {
                 if (address.Address.AddressFamily != AddressFamily.InterNetwork)
                     continue;
 
-                var ip = address.Address.ToString();
-                var parts = ip.Split('.');
-
-                return $"{parts[0]}.{parts[1]}.{parts[2]}.";
+                return Get24BaseIp(address.Address);
             }
         }
 
         throw new Exception("No IPv4 address found.");
+    }
+
+    private static string Get24BaseIp(IPAddress address)
+    {
+        var bytes = address.GetAddressBytes();
+        return $"{bytes[0]}.{bytes[1]}.{bytes[2]}.";
     }
 }

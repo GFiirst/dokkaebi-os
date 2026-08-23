@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace dokkaebi_os.Services;
 
 public class ArpService
 {
-    public async Task<List<Device>> GetDevicesAsync()
+    public async Task<List<Device>> GetDevicesAsync(string baseIp)
     {
         if (OperatingSystem.IsLinux())
         {
@@ -16,7 +17,7 @@ public class ArpService
 
         if (OperatingSystem.IsWindows())
         {
-            return await GetWindowsDevicesAsync();
+            return await GetWindowsDevicesAsync(baseIp);
         }
 
         throw new PlatformNotSupportedException(
@@ -30,11 +31,11 @@ public class ArpService
         return ParseLinuxOutput(output);
     }
 
-    private async Task<List<Device>> GetWindowsDevicesAsync()
+    private async Task<List<Device>> GetWindowsDevicesAsync(string baseIp)
     {
         var output = await ExecuteCommandAsync("arp", "-a");
 
-        return ParseWindowsOutput(output);
+        return ParseWindowsOutput(output, baseIp);
     }
 
 
@@ -63,14 +64,14 @@ public class ArpService
         return output;
     }
 
-    private List<Device> ParseWindowsOutput(string output)
+    private List<Device> ParseWindowsOutput(string output, string baseIp)
         {
             var devices = new List<Device>();
 
             foreach (var line in output.Split('\n'))
             {
                 var parts = line.Split(
-                    new[] { ' ', '\t' },
+                    new[] { ' ', '\t', '\r' },
                     StringSplitOptions.RemoveEmptyEntries);
 
                 if (parts.Length < 3)
@@ -86,6 +87,18 @@ public class ArpService
                     continue;
                 }
 
+                if (!ip.StartsWith(baseIp, StringComparison.Ordinal))
+                {
+                    continue;
+                }
+
+                if (mac.Equals(
+                        "ff-ff-ff-ff-ff-ff",
+                        StringComparison.OrdinalIgnoreCase))
+                {
+                    continue;
+                }
+
                 devices.Add(new Device
                 {
                     Ip = ip,
@@ -94,7 +107,12 @@ public class ArpService
                 });
             }
 
-            return devices;
+            return devices
+                .GroupBy(device => device.Ip)
+                .Select(group => group.First())
+                .OrderBy(device =>
+                    System.Net.IPAddress.Parse(device.Ip).GetAddressBytes()[3])
+                .ToList();
         }
 
    private List<Device> ParseLinuxOutput(string output)
