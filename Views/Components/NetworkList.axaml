@@ -6,8 +6,6 @@
              >
     
     <Border>
-
-        <!-- header da tabela -->
         <Grid RowDefinitions="25, 10, *">
             <Grid.Background>
                 <ImageBrush
