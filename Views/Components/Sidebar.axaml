@@ -11,7 +11,9 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid>
+            <Grid
+                RowDefinitions="130, *, *, *"
+            >
                 <Grid.Background>
                     <ImageBrush
                         Source="/Assets/sidebackground.png"
@@ -19,12 +21,6 @@
                     />
                 </Grid.Background>
                 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="130"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
                 <Grid
                     Grid.Row="0"
                 >
@@ -36,11 +32,8 @@
                 </Grid>
                 <Grid
                     Grid.Row="1"
+                    RowDefinitions="20, 10"
                 >   
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="10"/>
-                    </Grid.RowDefinitions>
                     <TextBlock
                         Grid.Row="0"
                         Text="DOKK OS"
@@ -59,8 +52,38 @@
                     />
                 </Grid>                       
             </Grid>
-            <Grid>
-                
+            <Grid
+                Grid.Row="2"
+            >
+                <Border
+                    BorderThickness="2"
+                    BorderBrush="White"
+                    CornerRadius="3"
+                    Margin="50 0"
+                >
+                    <Grid
+                        RowDefinitions="*, 30"
+                        RowSpacing="10"
+                    >
+                        <Image
+                            Grid.Row="0"
+                            Source="/Assets/camera_dokka.png"
+                            Width="150"
+                        />
+                        <Border
+                            Grid.Row="1"
+                            Background="#507E96"
+                        >
+                            <TextBlock
+                                Foreground="white"
+                                FontSize="16"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="검색 중..."
+                            />
+                        </Border>
+                    </Grid>
+                </Border>
             </Grid>
 
             <Grid></Grid>
