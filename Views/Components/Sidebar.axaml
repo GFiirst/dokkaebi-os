@@ -1,6 +1,7 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="dokkaebi_os.Views.Components.Sidebar">
+             x:Class="dokkaebi_os.Views.Components.Sidebar"
+             >
     
     <Border Background="#2d4754">
         <Grid RowDefinitions="auto, auto, auto, auto"
@@ -28,7 +29,8 @@
                 </Grid>
                 <Grid
                     Grid.Row="1"
-                    RowDefinitions="20, 10"
+                    RowDefinitions="25, 12"
+                    RowSpacing="3"
                 >   
                     <TextBlock
                         Grid.Row="0"

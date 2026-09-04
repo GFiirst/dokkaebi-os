@@ -9,7 +9,16 @@
         <local:ViewLocator />
     </Application.DataTemplates>
 
+    <Application.Resources>
+        <FontFamily x:Key="NotoSansKR">
+            avares://dokkaebi-os/Assets/Fonts#Noto Sans CJK KR
+        </FontFamily>
+    </Application.Resources>
+
     <Application.Styles>
         <FluentTheme />
+        <Style Selector=":is(TopLevel)">
+            <Setter Property="FontFamily" Value="{StaticResource NotoSansKR}" />
+        </Style>
     </Application.Styles>
 </Application>
