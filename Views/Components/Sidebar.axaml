@@ -98,7 +98,7 @@
                     >
                         <Image
                             Grid.Row="0"
-                            Source="/Assets/dokka_cam.png"
+                            Source="/Assets/dokka_drone.png"
                             Width="180"
                             Stretch="Uniform"
                         />
