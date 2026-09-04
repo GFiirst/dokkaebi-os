@@ -132,7 +132,8 @@
                     >
                         <Image
                             Grid.Row="0"
-                            Source="/Assets/dokka_cam.png"
+                            Margin="0 10"
+                            Source="/Assets/dokka_hack.png"
                             Width="180"
                             Stretch="Uniform"
                         />
