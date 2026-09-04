@@ -7,7 +7,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="300"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -63,12 +63,12 @@
                 >
                     <Grid
                         RowDefinitions="*, 30"
-                        RowSpacing="10"
                     >
                         <Image
                             Grid.Row="0"
-                            Source="/Assets/camera_dokka.png"
-                            Width="150"
+                            Source="/Assets/dokka_cam.png"
+                            Width="180"
+                            Stretch="Uniform"
                         />
                         <Border
                             Grid.Row="1"
