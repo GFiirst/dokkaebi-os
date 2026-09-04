@@ -3,24 +3,20 @@
              x:Class="dokkaebi_os.Views.Components.Sidebar">
     
     <Border Background="#2d4754">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="300"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid
-                RowDefinitions="130, *, *, *"
-            >
-                <Grid.Background>
+        <Grid RowDefinitions="auto, auto, auto, auto"
+            RowSpacing="20"
+        >
+            <Grid.Background>
                     <ImageBrush
+                        AlignmentY="Top"
                         Source="/Assets/sidebackground.png"
-                        Stretch="UniformToFill"
                     />
-                </Grid.Background>
-                
+            </Grid.Background>
+
+            <Grid
+                Grid.Row="0"
+                RowDefinitions="130, *"
+            >
                 <Grid
                     Grid.Row="0"
                 >
@@ -53,7 +49,7 @@
                 </Grid>                       
             </Grid>
             <Grid
-                Grid.Row="2"
+                Grid.Row="1"
             >
                 <Border
                     BorderThickness="2"
@@ -86,11 +82,73 @@
                 </Border>
             </Grid>
 
-            <Grid></Grid>
+            <Grid
+                Grid.Row="2"
+            >
+                <Border
+                    BorderThickness="2"
+                    BorderBrush="White"
+                    CornerRadius="3"
+                    Margin="50 0"
+                >
+                    <Grid
+                        RowDefinitions="*, 30"
+                    >
+                        <Image
+                            Grid.Row="0"
+                            Source="/Assets/dokka_cam.png"
+                            Width="180"
+                            Stretch="Uniform"
+                        />
+                        <Border
+                            Grid.Row="1"
+                            Background="#507E96"
+                        >
+                            <TextBlock
+                                Foreground="white"
+                                FontSize="16"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="사용 가능"
+                            />
+                        </Border>
+                    </Grid>
+                </Border>
+            </Grid>
 
-            <Grid></Grid>
-
-            <Grid></Grid>
+            <Grid
+                Grid.Row="3"
+            >
+                <Border
+                    BorderThickness="2"
+                    BorderBrush="White"
+                    CornerRadius="3"
+                    Margin="50 0"
+                >
+                    <Grid
+                        RowDefinitions="*, 30"
+                    >
+                        <Image
+                            Grid.Row="0"
+                            Source="/Assets/dokka_cam.png"
+                            Width="180"
+                            Stretch="Uniform"
+                        />
+                        <Border
+                            Grid.Row="1"
+                            Background="#507E96"
+                        >
+                            <TextBlock
+                                Foreground="white"
+                                FontSize="16"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="해킹 실행"
+                            />
+                        </Border>
+                    </Grid>
+                </Border>
+            </Grid>
         </Grid>
     </Border>
 </UserControl>
